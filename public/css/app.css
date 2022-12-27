@@ -2149,3 +2149,8 @@ footer .credits {
 .box-comments .list-comments span {
   font-size: 0.8rem !important;
 }
+
+.user-data {
+  font-size: 0.87rem !important;
+  color: #aa1b53;
+}

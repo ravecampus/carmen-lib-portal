@@ -8,7 +8,7 @@
                <div class="col-lg-12">       
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-brand">Carmen<span class="color-b">  Academy</span></h1>
+                             <router-link :to="{name:'home'}"><h1 class="h4 text-brand">Carmen<span class="color-b">  Academy</span></h1></router-link>
                             <p >Asia International College Of Science And Technology</p>
                             <h3 class="h4 text-gray-900 mb-4">Create an Account!</h3>
                         </div>
@@ -20,12 +20,12 @@
                            <form class="php-email-form">
                                 <div class="form-group row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" v-model="post.first_name" class="form-control form-control-a"
+                                        <input type="text" v-model="post.first_name"  @keyup.enter="register" class="form-control form-control-a"
                                             placeholder="First Name">
                                      <span class="errors-material" v-if="errors.first_name">{{errors.first_name[0]}}</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" v-model="post.last_name" class="form-control form-control-a"
+                                        <input type="text" v-model="post.last_name" @keyup.enter="register" class="form-control form-control-a"
                                             placeholder="Last Name">
                                      <span class="errors-material" v-if="errors.last_name">{{errors.last_name[0]}}</span>
 
@@ -33,15 +33,15 @@
                                 </div>
                                  <div class="form-group mb-3 row">
                                      <div class="col-md-4">
-                                        <input type="radio" v-model="post.role" :value="0"> &nbsp;
+                                        <input type="radio" v-model="post.role" @keyup.enter="register" :value="0"> &nbsp;
                                         <label>Student</label>
                                      </div>
                                      <div class="col-md-4">
-                                        <input type="radio" class="ml-5" v-model="post.role" :value="1"> &nbsp;
+                                        <input type="radio" class="ml-5" v-model="post.role" @keyup.enter="register" :value="1"> &nbsp;
                                         <label >Faculty</label>
                                      </div>
                                      <div class="col-md-4">
-                                         <input type="radio" class="ml-5"  v-model="post.role" :value="2"> &nbsp;
+                                         <input type="radio" class="ml-5"  v-model="post.role" @keyup.enter="register" :value="2"> &nbsp;
                                         <label>Visitor</label>
                                      </div>   
                                     <div>
@@ -49,18 +49,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="email" v-model="post.email" class="form-control form-control-a"
+                                    <input type="email" v-model="post.email" @keyup.enter="register" class="form-control form-control-a"
                                         placeholder="Email Address">
                                      <span class="errors-material" v-if="errors.email">{{errors.email[0]}}</span>
                                 </div>
                                 <div class="form-group row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" v-model="post.password" class="form-control form-control-a"
+                                        <input type="password" v-model="post.password" @keyup.enter="register" class="form-control form-control-a"
                                              placeholder="Password">
                                         <span class="errors-material" v-if="errors.password">{{errors.password[0]}}</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" v-model="post.password_confirmation" class="form-control form-control-a"
+                                        <input type="password" v-model="post.password_confirmation" @keyup.enter="register" class="form-control form-control-a"
                                             placeholder="Password Confirmation">
                                         <span class="errors-material" v-if="errors.password_confirmation">{{errors.password_confirmation[0]}}</span>
 

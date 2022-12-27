@@ -21,7 +21,7 @@
           
 
           <li class="nav-item">
-            <router-link class="nav-link " :to="{name:'about'}">School Profile</router-link>
+            <router-link class="nav-link " :to="{name:'about'}">S.Profile</router-link>
           </li>
 
           <li class="nav-item">
@@ -44,12 +44,12 @@
           </li>
           
            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">( <small><span class="fa fa-user"></span> {{ user.first_name+" "+user.last_name }}</small> )</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small class="user-data"><span class="fa fa-user"></span> {{ user.first_name+" "+user.last_name }}</small></a>
             <div class="dropdown-menu">
               <!-- <p class="p-2"><span class="fa fa-user"></span>  Lavwin Campollo</p>
               <hr> -->
               <router-link class="dropdown-item" :to="{name:'profile'}" >Profile</router-link>
-              <a class="dropdown-item " @click="logout()">Log out</a>
+              <a class="dropdown-item" href="#" @click="logout()">Log out</a>
             </div>
           </li>
         </ul>

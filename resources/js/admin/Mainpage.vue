@@ -21,14 +21,14 @@
           
 
           <li class="nav-item">
-            <router-link class="nav-link " :to="{name:'adminlibprofile'}">Profile</router-link>
+            <router-link class="nav-link " :to="{name:'adminlibprofile'}">S.Profile</router-link>
           </li>
 
           <li class="nav-item">
             <router-link class="nav-link " :to="{name:'adminacademic'}">Academics</router-link>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E. Resources</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
             <div class="dropdown-menu">
               <router-link class="dropdown-item" :to="{name:'adminbook'}" >Books</router-link>
               <router-link class="dropdown-item" :to="{name:'adminjournal'}">Journals</router-link>

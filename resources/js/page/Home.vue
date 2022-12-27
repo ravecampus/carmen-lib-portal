@@ -33,6 +33,27 @@
 
     </div>
   </nav><!-- End Header/Navbar -->
+  <main class="main">
+     <section class="section-news section-t8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="card shadow">
+                <div class="card-body text-center text-secondary">
+                          <h1 class="text-secondary">LIBRARY PORTAL OF CARMEN ACADEMY</h1>
+                          <h4 class="text-secondary">CARMEN, COTABATO</h4>
+                      
+                      <div class="d-flex justify-content-center mb-4">
+                        
+                        <img class="w-50" :src="'../img/logo.jpg'" />
+                      </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+     </section>
+  </main>
 
 </div>
 </template>
@@ -60,9 +81,8 @@ export default {
                 }else if(user.role == 1 || user.role == 0 || user.role == 2){
                      this.$router.push({name:'userhome'})
                 }
-          }else{
-             this.$router.push({name:'login'})
           }
+             
   },
 }
 </script>

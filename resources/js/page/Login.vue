@@ -17,7 +17,7 @@
                <div class="col-lg-12">       
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-brand">Carmen<span class="color-b">  Academy</span></h1>
+                            <router-link :to="{name:'home'}"><h1 class="h4 text-brand">Carmen<span class="color-b">  Academy</span></h1></router-link>
                             <p >Asia International College Of Science And Technology</p>
                             <h3 class="h4 text-gray-900 mb-4">Welcome Back!</h3>
                         </div>
@@ -30,7 +30,7 @@
                             <div class="row mb-4">
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <input type="email" v-model="post.email" class="form-control form-control-a"
+                                        <input type="email"  @keyup.enter="login" v-model="post.email" class="form-control form-control-a"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
                                             placeholder="Enter Email Address...">
                                                 <span class="errors-material" v-if="errors.email">{{errors.email[0]}}</span>
@@ -38,8 +38,8 @@
                                 </div>
                                 <div class="col-md-12 mb3">
                                     <div class="form-group">
-                                        <input type="password" v-model="post.password" class="form-control  form-control-a"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type="password"  @keyup.enter="login" v-model="post.password" class="form-control  form-control-a"
+                                            id="exampleInputPassword" placeholder="Enter Password...">
                                                 <span class="errors-material" v-if="errors.password">{{errors.password[0]}}</span>
                                     </div>
                                 </div>

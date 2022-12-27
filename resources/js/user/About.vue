@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap pb-2">
                         <div class="title-box">
-                        <h2 class="title-a ">About</h2>
+                        <h2 class="title-a ">School Profile</h2>
                         <h4 >{{post.title }}</h4>
                         <p>{{ post.description }}</p>
                         </div>
