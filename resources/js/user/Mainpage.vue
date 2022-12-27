@@ -16,12 +16,12 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name:'userhome'}">Home</router-link>
+            <router-link class="nav-link" :to="{name:'userhome'}">Dashboard</router-link>
           </li>
           
 
           <li class="nav-item">
-            <router-link class="nav-link " :to="{name:'about'}">About</router-link>
+            <router-link class="nav-link " :to="{name:'about'}">School Profile</router-link>
           </li>
 
           <li class="nav-item">

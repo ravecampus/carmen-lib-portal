@@ -99,7 +99,7 @@ export const routes = [
             },
             {
                 name: 'about',
-                path: 'about',
+                path: 'school-profile',
                 component: About,
             },
             {
