@@ -23,6 +23,7 @@ import Magazine from '../user/Magazine';
 import Service from '../user/Service';
 import Contact from '../user/Contact';
 import Profile from '../user/Profile';
+import HistoryD from '../user/History';
 
 import Login from '../page/Login';
 import Register from '../page/Registration';
@@ -137,6 +138,11 @@ export const routes = [
                 path: 'profile',
                 component: Profile,
             },
+            {
+                name: 'history',
+                path: 'history',
+                component: HistoryD,
+            },
         ]
     },
     {
@@ -161,9 +167,6 @@ const openRoutes = [
      'login',
      'register',
      
-
-    
-
 ];
 
 const userRoutes = [
@@ -177,8 +180,7 @@ const userRoutes = [
      'service',
      'contact',
      'profile',
-   
-   
+     'history',
    
 ];
 const adminRoutes = [

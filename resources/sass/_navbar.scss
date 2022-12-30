@@ -618,8 +618,8 @@ body {
   .navbar-default {
     transition: all 0.5s ease-in-out;
     background-color: #ffffff;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
@@ -652,7 +652,7 @@ body {
   
     .navbar-default.navbar-trans .nav-item,
     .navbar-default.navbar-reduce .nav-item {
-      margin-left: 15px;
+      margin-left: 5px;
     }
   }
   

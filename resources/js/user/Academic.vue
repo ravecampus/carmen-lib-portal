@@ -24,9 +24,9 @@
                         <li class="list-group-item d-flex justify-content-between shadow-sm" v-for="(list, index) in academics" :key="index">
                            <strong class="text-secondary"> {{ list.subject}}</strong>
 
-                            <div class="row">
+                            <div class="row ml-2">
                                 <div class="col-md-12">
-                                    <small>Books:</small>
+                                    <small>&nbsp; Books:</small>
                                     <div class="table-responsive mb-1">     
                                         <table  class="table p-1">
                                             <tbody>

@@ -6,9 +6,9 @@
                 <div class="col-md-12">
                     <div class="title-wrap pb-2">
                         <div class="title-box">
-                        <h2 class="title-a ">School Profile</h2>
-                        <h4 >{{post.title }}</h4>
-                        <p>{{ post.description }}</p>
+                        <h2 class="title-a ">History, Rules and Regulations</h2>
+                        <!-- <h4 >{{post.title }}</h4>
+                        <p>{{ post.description }}</p> -->
                         </div>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
         </div>
       </section>
       <section class="intro-single pt-3">
-        <!-- <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="title-single-box shadow p-4">
@@ -25,9 +25,9 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
        
-        <div class="container">
+        <!-- <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="title-single-box shadow">
@@ -38,8 +38,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="container mt-5">
+        </div> -->
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="title-single-box shadow">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
     </section><!-- End Intro Single-->
         

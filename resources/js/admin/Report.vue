@@ -27,9 +27,10 @@
                         <h6>Asia International College Of Science And Technology</h6>
                         <h6>CARMEN, COTABATO</h6>
                     </div>
-                    <div class="d-none d-print-block text-center">
+                    <div class="text-center">
                        <h4> User logs </h4>
                         <small>{{ tableData.date == null ? formatDate(new Date()) : formatDate(tableData.date) }}(online)</small>
+                        <span> - Total of <strong>{{ users.length }}</strong> user/s</span>
                     </div>
                     <hr>
                     <div class="row d-print-none">

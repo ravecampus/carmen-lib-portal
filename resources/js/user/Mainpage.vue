@@ -40,6 +40,9 @@
             <router-link class="nav-link " :to="{name:'service'}">Services</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link " :to="{name:'history'}">History</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link " :to="{name:'contact'}">Contact</router-link>
           </li>
           

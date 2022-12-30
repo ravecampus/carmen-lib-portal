@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-center">
                     <div class="title-box">
-                    <h2 class="title-a ">Library Profile</h2>
+                    <h2 class="title-a ">Library Profile and History</h2>
                     <h6 >Set up library information</h6>
                     </div>
                 </div>
