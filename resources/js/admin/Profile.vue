@@ -18,31 +18,37 @@
                   <div class="row">
                     <div class="col-md-12 mb-3">
                       <div class="form-group">
+                        <label>Title</label>
                         <input type="text" v-model="post.title" class="form-control form-control-lg form-control-a" placeholder="Title">
                       </div>
                     </div>
                      <div class="col-md-12 mb-3">
                       <div class="form-group">
+                        <label>Description</label>
                         <input type="text" v-model="post.description" class="form-control form-control-lg form-control-a" placeholder="Description">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
+                        <label>School History</label>
                         <textarea v-model="post.history" class="form-control mb-3" cols="45" rows="8" placeholder="School History"></textarea>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
+                          <label>Mission</label>
                         <textarea v-model="post.mission" class="form-control mb-3" cols="45" rows="4" placeholder="Mission"></textarea>
                       </div>
                     </div>
                      <div class="col-md-12">
                       <div class="form-group">
+                        <label>Vission</label>
                         <textarea v-model="post.vision" class="form-control mb-3" cols="45" rows="4" placeholder="Vission"></textarea>
                       </div>
                     </div>
                      <div class="col-md-12">
                       <div class="form-group">
+                        <label>Rules and Regulations</label>
                         <textarea name="message" v-model="post.rules_regulation" class="form-control mb-3" cols="45" rows="4" placeholder="Rules and Regulation"></textarea>
                       </div>
                     </div>
