@@ -62,9 +62,10 @@
                                 <td><strong>{{ list.first_name }}</strong>
                                 </td>
                                 <td><span>{{ list.last_name }}</span></td>
-                                <td><span>{{ list.grade_level }}</span></td>
+                                <!-- <td><span>{{ list.grade_level }}</span></td> -->
                                 <td><span>{{ extractRole(list.role) }}</span></td>
                                 <td><span>{{ list.email }}</span></td>
+                                <td><span>{{  filterNumberLogs(list.id) }}</span></td>
                                 <!-- <td><span>{{ list.contact_number }}</span></td> -->
                                 <!-- <td><span class="text-success">{{ list.logs.length }}</span></td> -->
                         
@@ -123,9 +124,10 @@ export default {
         let columns =[
         {label:'First Name', name:null},
         {label:'Last Name', name:null},
-        {label:'Grade Level', name:null},
+        // {label:'Grade Level', name:null},
         {label:'Role', name:null},
         {label:'Email', name:null},
+        {label:'Number of logs', name:null},
         // {label:'Contact Number', name:null},
         // {label:'Online Users', name:null},
         // {label:'Action ', name:null},
@@ -141,12 +143,13 @@ export default {
             errors:[],
             post:{},
             users:[],
+            numlogs:[],
             columns:columns,
             sortOrders:sortOrders,
             sortKey:'created_at',
             btndis: false,
             tableData:{
-                date:null,
+                date:new Date,
                 draw:0,
                 length:1000,
                 search:'',
@@ -236,10 +239,30 @@ export default {
         },
         filterData(){
             this.listUser();
+        },
+        filterNumberLogs(id){
+            let num = 0;
+            this.numlogs.forEach(val => {
+                if(val.user_id == id && new Date(val.date).getDate() == this.tableData.date.getDate()){
+                    num += val.log;
+                   
+                }
+            });
+            return num;
+        },
+        listLogs(){
+            this.$axios.get("sactum/cookie-csrf").then(response=>{
+                this.$axios.get("api/num-logs/").then(res=>{
+                  this.numlogs = res.data;
+                });
+            });
         }
+
     },
     mounted() {
+     
         this.listUser();
+           this.listLogs()
     },
 }
 </script>

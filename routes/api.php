@@ -34,47 +34,29 @@ Route::post('register',[AuthController::class, 'register']);
 Route::post('login',[AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::resource('lib-profile', LibProfileController::class);
-Route::resource('book', BookController::class);
-Route::resource('journal', JournalController::class);
-Route::resource('magazine', MagazineController::class);
-Route::resource('service', ServiceController::class);
-Route::post('service-upload', [ServiceController::class, 'serviceUpload']);
-Route::resource('user', UserController::class);
-Route::post('user-account', [UserController::class,'setAccount']);
-Route::get('user-list', [UserController::class,'userList']);
-Route::resource('event', EventController::class);
-Route::post('event-upload', [EventController::class, 'eventUpload']);
-Route::resource('academic', AcademicController::class);
-Route::get('book-list', [BookController::class, 'listBook']);
-Route::resource('academic-book', AcademicBookController::class);
-Route::post('change-password', [AuthController::class,'changePassword']);
-Route::post('update-profile', [AuthController::class,'updateProfile']);
 
-Route::resource('comment', CommentController::class);
-Route::resource('reply', ReplyController::class);
 
 Route::middleware('auth:sanctum')->group(function () {
-    //Route::resource('lib-profile', LibProfileController::class);
-    // Route::resource('collection', CollectionController::class);
-    // Route::resource('book', BookController::class);
-    // Route::resource('journal', JournalController::class);
-    // Route::resource('magazine', MagazineController::class);
-    // Route::resource('gallery', GalleryController::class);
-    // Route::post('gallery-upload',[GalleryController::class, 'galleryUpload']);
-    // Route::resource('linkage', LinkageController::class);
-    // Route::resource('service', ServiceController::class);
-    // Route::post('service-upload', [ServiceController::class, 'serviceUpload']);
-    // Route::resource('faculty', FacultyController::class);
-    // Route::resource('user', UserController::class);
-    // Route::resource('comment', CommentController::class);
-    // Route::resource('event', EventController::class);
-    // Route::resource('reply', ReplyController::class);
-    // Route::post('user-account', [UserController::class,'setAccount']);
-    // Route::post('event-upload', [EventController::class, 'eventUpload']);
-
-    // Route::post('change-password', [AuthController::class,'changePassword']);
-    // Route::post('update-profile', [AuthController::class,'updateProfile']);
+    Route::resource('lib-profile', LibProfileController::class);
+    Route::resource('book', BookController::class);
+    Route::resource('journal', JournalController::class);
+    Route::resource('magazine', MagazineController::class);
+    Route::resource('service', ServiceController::class);
+    Route::post('service-upload', [ServiceController::class, 'serviceUpload']);
+    Route::resource('user', UserController::class);
+    Route::post('user-account', [UserController::class,'setAccount']);
+    Route::get('user-list', [UserController::class,'userList']);
+    Route::resource('event', EventController::class);
+    Route::post('event-upload', [EventController::class, 'eventUpload']);
+    Route::resource('academic', AcademicController::class);
+    Route::get('book-list', [BookController::class, 'listBook']);
+    Route::resource('academic-book', AcademicBookController::class);
+    Route::post('change-password', [AuthController::class,'changePassword']);
+    Route::post('update-profile', [AuthController::class,'updateProfile']);
+    
+    Route::resource('comment', CommentController::class);
+    Route::resource('reply', ReplyController::class);
     Route::get('report', [UserController::class,'reportUser']);
-    // Route::get('user-list', [UserController::class,'userList']);
+    Route::get('num-logs', [UserController::class,'getNumLog']);
+    
 });

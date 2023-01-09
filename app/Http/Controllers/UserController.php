@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\NumLog;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -181,5 +182,10 @@ class UserController extends Controller
     public function userList(){
         $user = User::all();
         return response()->json($user, 200);
+    }
+
+    public function getNumLog(Request $request){
+        $numlog = NumLog::all();
+        return response()->json($numlog, 200);
     }
 }

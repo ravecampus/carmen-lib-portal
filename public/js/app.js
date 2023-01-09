@@ -21458,14 +21458,16 @@ __webpack_require__.r(__webpack_exports__);
     }, {
       label: 'Last Name',
       name: null
-    }, {
-      label: 'Grade Level',
-      name: null
-    }, {
+    },
+    // {label:'Grade Level', name:null},
+    {
       label: 'Role',
       name: null
     }, {
       label: 'Email',
+      name: null
+    }, {
+      label: 'Number of logs',
       name: null
     }
     // {label:'Contact Number', name:null},
@@ -21482,12 +21484,13 @@ __webpack_require__.r(__webpack_exports__);
       errors: [],
       post: {},
       users: [],
+      numlogs: [],
       columns: columns,
       sortOrders: sortOrders,
       sortKey: 'created_at',
       btndis: false,
       tableData: {
-        date: null,
+        date: new Date(),
         draw: 0,
         length: 1000,
         search: '',
@@ -21586,10 +21589,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     filterData: function filterData() {
       this.listUser();
+    },
+    filterNumberLogs: function filterNumberLogs(id) {
+      var _this3 = this;
+      var num = 0;
+      this.numlogs.forEach(function (val) {
+        if (val.user_id == id && new Date(val.date).getDate() == _this3.tableData.date.getDate()) {
+          num += val.log;
+        }
+      });
+      return num;
+    },
+    listLogs: function listLogs() {
+      var _this4 = this;
+      this.$axios.get("sactum/cookie-csrf").then(function (response) {
+        _this4.$axios.get("api/num-logs/").then(function (res) {
+          _this4.numlogs = res.data;
+        });
+      });
     }
   },
   mounted: function mounted() {
     this.listUser();
+    this.listLogs();
   }
 });
 
@@ -25136,7 +25158,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.users, function (list, idx) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tbody", {
           key: idx
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.first_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.last_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.grade_level), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.extractRole(list.role)), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.email), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td><span>{{ list.contact_number }}</span></td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td><span class=\"text-success\">{{ list.logs.length }}</span></td> ")]), _hoisted_22]);
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.first_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.last_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td><span>{{ list.grade_level }}</span></td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.extractRole(list.role)), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.email), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.filterNumberLogs(list.id)), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td><span>{{ list.contact_number }}</span></td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td><span class=\"text-success\">{{ list.logs.length }}</span></td> ")]), _hoisted_22]);
       }), 128 /* KEYED_FRAGMENT */))];
     }),
 

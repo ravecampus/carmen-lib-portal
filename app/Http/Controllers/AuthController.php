@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserLog;
+use App\Models\NumLog;
 use Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +51,11 @@ class AuthController extends Controller
 
         $a = Auth::user();
         if($a->role == 0 || $a->role == 1 || $a->role == 2){
+            NumLog::create([
+                'user_id' => $a->id,
+                'log' => 1,
+                'date' => Carbon::now()->format('Y-m-d'),
+            ]);
             $ulog = UserLog::where('user_id', $a->id)->where('date', Carbon::now()->format('Y-m-d'))->first();
             if(!isset($ulog)){
                 UserLog::create([
