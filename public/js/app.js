@@ -21479,6 +21479,7 @@ __webpack_require__.r(__webpack_exports__);
       sortOrders[column.name] = -1;
     });
     return {
+      fildate: null,
       upload: {},
       btncap: "Save",
       errors: [],
@@ -21497,7 +21498,7 @@ __webpack_require__.r(__webpack_exports__);
         column: 0,
         archive: 0,
         dir: 'desc',
-        filter: null
+        filter: ""
       },
       pagination: {
         lastPage: '',
@@ -21526,6 +21527,7 @@ __webpack_require__.r(__webpack_exports__);
           var data = res.data;
           if (_this.tableData.draw == data.draw) {
             _this.users = data.data.data;
+            console.log(_this.users);
             _this.configPagination(data.data);
           } else {
             _this.not_found = true;
@@ -21588,13 +21590,14 @@ __webpack_require__.r(__webpack_exports__);
       return num == 0 ? "Student" : num == 1 ? "Faculty" : num == 2 ? "Visitor" : "Admin";
     },
     filterData: function filterData() {
+      this.fildate = this.tableData.date;
       this.listUser();
     },
     filterNumberLogs: function filterNumberLogs(id) {
       var _this3 = this;
       var num = 0;
       this.numlogs.forEach(function (val) {
-        if (val.user_id == id && new Date(val.date).getDate() == _this3.tableData.date.getDate()) {
+        if (val.user_id == id && new Date(val.date).getDate() == _this3.fildate.getDate()) {
           num += val.log;
         }
       });
@@ -21610,6 +21613,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.fildate = this.tableData.date;
     this.listUser();
     this.listLogs();
   }
@@ -25092,7 +25096,7 @@ var _hoisted_12 = {
   "class": "col-md-6"
 };
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "null"
+  value: ""
 }, "Filter", -1 /* HOISTED */);
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "0"

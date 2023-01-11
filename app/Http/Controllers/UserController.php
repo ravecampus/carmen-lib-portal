@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserLog;
 use App\Models\NumLog;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -153,25 +154,27 @@ class UserController extends Controller
         $dir = $request->dir;
         $filter = $request->filter;
         $searchValue = $request->search;
-        
-        if(is_null($filter)){
-            $query = User::select('users.*', 'user_log.log', 'user_log.date')
-                ->join('user_log', 'user_log.user_id','=', 'users.id')
-                ->where("users.role","!=", 3)->where('user_log.date', Carbon::now()->format('Y-m-d'))->orderBy('users.'.$columns[$column], $dir);
 
+        // dd($request);
+        
+        if(is_null($filter) && $filter == null){
+            $query = UserLog::select('users.*', 'user_log.log', 'user_log.date')
+                ->join('users', 'users.id','=', 'user_log.user_id')
+                ->where("users.role","!=", 3)
+                ->where('user_log.date', Carbon::parse($date)->format('Y-m-d'))->orderBy('users.'.$columns[$column], $dir);
         }else{
-            $query = User::select('users.*', 'user_log.log', 'user_log.date')
-                ->join('user_log', 'user_log.user_id','=', 'users.id')
+            $query = UserLog::select('users.*', 'user_log.log', 'user_log.date')
+                ->join('users', 'users.id','=', 'user_log.user_id')
                 ->where("users.role","!=", 3)
                 ->where('users.role', $filter)
                 ->where('user_log.date', Carbon::parse($date)->format('Y-m-d'))->orderBy('users.'.$columns[$column], $dir);
-        }
+            }
        
             
         if($searchValue){
             $query->where(function($query) use ($searchValue){
-                $query->where('first_name', 'like', '%'.$searchValue.'%')
-                ->orWhere('last_name', 'like', '%'.$searchValue.'%');
+                $query->where('users.first_name', 'like', '%'.$searchValue.'%')
+                ->orWhere('users.last_name', 'like', '%'.$searchValue.'%');
             });
         }
        

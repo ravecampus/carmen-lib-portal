@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-6">
                             <select class="form-control" v-model="tableData.filter">
-                                <option value="null">Filter</option>
+                                <option value="">Filter</option>
                                 <option value="0">Student</option>
                                 <option value="1">Faculty</option>
                                 <option value="2">Visitor</option>
@@ -138,6 +138,7 @@ export default {
         });
 
         return{
+            fildate:null,
             upload:{},
             btncap:"Save",
             errors:[],
@@ -156,7 +157,7 @@ export default {
                 column:0,
                 archive:0,
                 dir:'desc',
-                filter:null,
+                filter:"",
             },
             pagination:{
                 lastPage:'',
@@ -181,6 +182,7 @@ export default {
                     let data = res.data;
                     if(this.tableData.draw == data.draw){
                         this.users = data.data.data;
+                        console.log(this.users)
                         this.configPagination(data.data);
                     }else{
                         this.not_found = true;
@@ -238,12 +240,14 @@ export default {
             return num== 0 ? "Student" :num == 1 ? "Faculty" :num ==2 ? "Visitor" :"Admin";
         },
         filterData(){
+            this.fildate = this.tableData.date;
             this.listUser();
         },
         filterNumberLogs(id){
+            
             let num = 0;
             this.numlogs.forEach(val => {
-                if(val.user_id == id && new Date(val.date).getDate() == this.tableData.date.getDate()){
+                if(val.user_id == id && new Date(val.date).getDate() ==  this.fildate.getDate()){
                     num += val.log;
                    
                 }
@@ -260,9 +264,9 @@ export default {
 
     },
     mounted() {
-     
+        this.fildate = this.tableData.date;
         this.listUser();
-           this.listLogs()
+        this.listLogs()
     },
 }
 </script>
