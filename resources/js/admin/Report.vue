@@ -29,7 +29,7 @@
                     </div>
                     <div class="text-center">
                        <h4> User logs </h4>
-                        <small>{{ tableData.date == null ? formatDate(new Date()) : formatDate(tableData.date) }}(online)</small>
+                        <small>{{ tableData.datedata == null ? formatDate(new Date()) : formatDate(tableData.datedata) }}(online)</small>
                         <span> - Total of <strong>{{ users.length }}</strong> user/s</span>
                     </div>
                     <hr>
@@ -38,7 +38,7 @@
                             <button type="button" @click="printData()" class="btn btn-b-n btn-sm "><i class="fa fa-print"></i> Print</button>
                         </div> -->
                         <div class="col-md-3">
-                            <Datepicker v-model="tableData.date" placeholder="Date" :format="format"/>
+                            <Datepicker v-model="tableData.datedata" placeholder="Date" :format="format"/>
                         </div>
                         <div class="col-md-6">
                             <select class="form-control" v-model="tableData.filter">
@@ -50,7 +50,7 @@
                           
                         </div>
                         <div class="col-md-3">
-                              <button typr="button" @click="filterData()" class="btn btn-b-n btn-sm"><span class="fa fa-filter"></span>Filter </button>
+                            <button typr="button" @click="filterData()" class="btn btn-b-n btn-sm"><span class="fa fa-filter"></span>Filter </button>
                             <button type="button" @click="printData()" class="btn btn-b-n btn-sm "><i class="fa fa-print"></i> Print</button>
                         </div>
                         
@@ -150,7 +150,7 @@ export default {
             sortKey:'created_at',
             btndis: false,
             tableData:{
-                date:new Date,
+                datedata:new Date(),
                 draw:0,
                 length:1000,
                 search:'',
@@ -240,8 +240,9 @@ export default {
             return num== 0 ? "Student" :num == 1 ? "Faculty" :num ==2 ? "Visitor" :"Admin";
         },
         filterData(){
-            this.fildate = this.tableData.date;
+            console.log(this.tableData.datedata)
             this.listUser();
+            this.fildate = this.tableData.datedata;
         },
         filterNumberLogs(id){
             

@@ -150,24 +150,28 @@ class UserController extends Controller
         $columns = ['first_name','last_name','contact_number','created_at'];
         $length = $request->length;
         $column = $request->column;
-        $date = $request->date;
+        $datea = $request->datedata;
         $dir = $request->dir;
         $filter = $request->filter;
         $searchValue = $request->search;
 
         // dd($request);
-        
+        $dated = Carbon::parse($datea)->addDays(1)->format('Y-m-d');
+
         if(is_null($filter) && $filter == null){
+            //  return  $date;
             $query = UserLog::select('users.*', 'user_log.log', 'user_log.date')
                 ->join('users', 'users.id','=', 'user_log.user_id')
                 ->where("users.role","!=", 3)
-                ->where('user_log.date', Carbon::parse($date)->format('Y-m-d'))->orderBy('users.'.$columns[$column], $dir);
+                // ->where("user_log.log",">", 0)
+                ->where('user_log.date', $dated)->orderBy('users.'.$columns[$column], $dir);
         }else{
+            // return "hello";
             $query = UserLog::select('users.*', 'user_log.log', 'user_log.date')
                 ->join('users', 'users.id','=', 'user_log.user_id')
                 ->where("users.role","!=", 3)
                 ->where('users.role', $filter)
-                ->where('user_log.date', Carbon::parse($date)->format('Y-m-d'))->orderBy('users.'.$columns[$column], $dir);
+                ->where('user_log.date',$dated )->orderBy('users.'.$columns[$column], $dir);
             }
        
             
