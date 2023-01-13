@@ -156,7 +156,7 @@ class UserController extends Controller
         $searchValue = $request->search;
 
         // dd($request);
-        $dated = Carbon::parse($datea)->addDays(1)->format('Y-m-d');
+        $dated = Carbon::parse($datea)->format('Y-m-d');
 
         if(is_null($filter) && $filter == null){
             //  return  $date;

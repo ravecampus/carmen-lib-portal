@@ -136,6 +136,8 @@ export default {
         columns.forEach(column=>{
             sortOrders[column.name] = -1;
         });
+        let dateme = new Date();
+        let second = dateme.setDate(dateme.getDate() + 1);
 
         return{
             fildate:null,
@@ -150,7 +152,7 @@ export default {
             sortKey:'created_at',
             btndis: false,
             tableData:{
-                datedata:new Date(),
+                datedata: new Date(),
                 draw:0,
                 length:1000,
                 search:'',
